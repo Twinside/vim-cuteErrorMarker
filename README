@@ -1,7 +1,6 @@
 Display a mark on lines which contain compilation errors listed on the quickfix window.
 
-Screenshots :
-http://img34.imageshack.us/gal.php?g=gvimsupercutennesswithk.png
+Screenshots : http://twinside.github.com/vim-cuteErrorMarker/
 
 Tested on :
 - Ubuntu 9.04 (GVim && vim)

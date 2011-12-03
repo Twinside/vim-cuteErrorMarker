@@ -3,70 +3,10 @@
 " File: cuteErrorMarker.vim
 " Author: Vincent Berthoux <twinside@gmail.com>
 " Last Change: 2010 oct 12
-" Version: 1.5
-" Thanks:
+" Version: 1.6
 " Require:
 "   set nocompatible
 "     somewhere on your .vimrc
-"
-" Usage:
-"      :MarkErrors
-"        Place markers near line from the error list
-"
-"      :CleanupMarkErrors
-"        Remove all the markers
-"
-"      :RemoveErrorMarkersHook
-"        Remove the autocommand for sign placing
-"
-"      :make
-"        Place marker automatically by default
-"
-"      :grep
-"        Place search marke automatically by default
-"
-" Additional:
-"     * If you have many errors, removing them might be uterly slow,
-"       you might want to use :
-"       let g:cuteErrorMarkerBrutalSignRemoval = 1
-"       to fasten things up. Warning, it may conflict with other
-"       plugins using the sign functionnality, as it will remove
-"       _ALL_ signs on refresh.
-"
-"     * if you don't want the automatic placing of markers
-"       after a make, you can define :
-"       let g:cuteerrors_no_autoload = 1
-"
-"     * If you don't want the balloon to display error text,
-"       define :
-"       let g:cuteerrors_no_baloons = 1
-"
-" ChangeLog:
-"     * 1.5  :- Added marks for grep search
-"     * 1.4.4:- Changed sign highlighting
-"     * 1.4.3:- Changing 'sign' verification mode
-"     * 1.4.2:- Avoid loading script if :signs command is not available.
-"     * 1.4.1:- No checking that the balloon option is present
-"     * 1.4  :- Added ballon to display error messages when overing
-"               an error line.
-"     * 1.3.2:- Changed loading of files using globpath()
-"     * 1.3.1:- Changed data retrievel function to getqflist().
-"     * 1.3  :- Taking into account "Documents and Settings" folder...
-"             - Adding icons source from $VIM or $VIMRUNTIME
-"             - Checking the nocompatible option (the only one required)
-"     * 1.2  :- Fixed problems with subdirectory
-"             - Warning detection is now case insensitive
-"     * 1.1  :- Bug fix when make returned only an error
-"             - reduced flickering by avoiding redraw when not needed.
-"     * 1.0  : Original version
-"
-" Thanks:
-"       - Ingo Karkat - Suggestion of signs check enhancement
-"       - A. S. Budden for the globpath function
-"       - Benoît Pierre for pointing the function getqflist() and
-"         providing a patch.
-"       - Yazilim Duzenleci for stressing the plugin and forcing
-"         me to make it more general.
 "
 if exists("g:__CUTEERRORMARKER_VIM__")
     finish

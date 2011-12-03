@@ -26,9 +26,17 @@
 "        Place search marke automatically by default
 "
 " Additional:
+"     * If you have many errors, removing them might be uterly slow,
+"       you might want to use :
+"       let g:cuteErrorMarkerBrutalSignRemoval = 1
+"       to fasten things up. Warning, it may conflict with other
+"       plugins using the sign functionnality, as it will remove
+"       _ALL_ signs on refresh.
+"
 "     * if you don't want the automatic placing of markers
 "       after a make, you can define :
 "       let g:cuteerrors_no_autoload = 1
+"
 "     * If you don't want the balloon to display error text,
 "       define :
 "       let g:cuteerrors_no_baloons = 1
@@ -95,6 +103,10 @@ let s:path = globpath( &rtp, 'signs/err' . s:ext )
 if s:path == ''
     echom "Cute Error Marker can't find icons, plugin not loaded" 
     finish
+endif
+
+if !exists('g:cuteErrorMarkerBrutalSignRemoval')
+    let g:cuteErrorMarkerBrutalSignRemoval = 0
 endif
 
 "======================================================================
@@ -182,6 +194,13 @@ endfunction "}}}
 
 fun! CleanupMarkErrors() "{{{
     let i = s:signId + s:signCount
+
+    if g:cuteErrorMarkerBrutalSignRemoval > 0
+        sign unplace *
+        let s:signCount = 0
+        redraw!
+        return
+    endif
 
     let s:errBalloons = []
     " this if is here to avoid redraw if un-needed

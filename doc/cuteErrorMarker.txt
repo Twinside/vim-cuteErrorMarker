@@ -34,7 +34,7 @@ Require~
 *CuteErrorCommands*
 2. Commands~
 
-                                                   *:MarkErrors* *:MarkErrors*  >
+                                                   *MarkErrors* *:MarkErrors*  >
  :MarkErrors
 <
    Place markers near line from the error list

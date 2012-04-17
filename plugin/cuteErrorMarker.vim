@@ -89,7 +89,7 @@ fun! s:SelectClass( kind, error ) "{{{
 		return 'infohere'
     endif
 
-    if a:error =~ '\cwarning'
+    if a:error =~ '\cwarning' || a:error =~ '\cattention'
         return 'warnhere'
     else
         return 'errhere'

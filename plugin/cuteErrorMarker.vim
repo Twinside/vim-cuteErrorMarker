@@ -121,7 +121,7 @@ fun! MarkErrors( kind ) "{{{
                             \ . ' line=' . error.lnum
                             \ . ' name=' . errClass
                             \ . ' buffer=' . matchedBuf
-                exec toPlace
+                silent! exec toPlace
             endif
         endif
     endfor
